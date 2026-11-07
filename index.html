@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LASH ARTIST - Tarjeta Digital</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: Playfair Display & Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brandBurgundy: '#7A1B38',
+            brandRaspberry: '#B53063',
+            brandPastelPink: '#F3D6E3',
+            brandLightPink: '#FBF0F5',
+            brandDark: '#4A0E22',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 30px rgba(122, 27, 56, 0.08)',
+            cardHover: '0 12px 35px rgba(122, 27, 56, 0.15)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #F3D6E3 0%, #F9E7F0 50%, #EFC9DB 100%);
+      color: #7A1B38;
+      min-height: 100vh;
+    }
+
+    /* SVG Curved Text Styling */
+    .curved-text-svg {
+      overflow: visible;
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+    }
+
+    .curved-text-path {
+      fill: none;
+    }
+
+    .curved-text-content {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 11.5px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      fill: #B53063;
+      text-transform: uppercase;
+    }
+
+    /* Custom Animation & Ripple Effects */
+    .btn-hover-effect {
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    
+    .btn-hover-effect:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(122, 27, 56, 0.12);
+    }
+
+    .btn-hover-effect:active {
+      transform: translateY(0);
+    }
+
+    /* Floating particles background pattern */
+    .bg-sparkle {
+      background-image: radial-gradient(#B53063 0.75px, transparent 0.75px);
+      background-size: 24px 24px;
+      opacity: 0.15;
+    }
+  </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 sm:p-6 min-h-screen relative overflow-x-hidden">
+
+  <!-- Sparkle Overlay Effect -->
+  <div class="fixed inset-0 bg-sparkle pointer-events-none"></div>
+
+  <!-- Main Card Container -->
+  <main class="w-full max-w-md bg-white/90 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-glass border border-white/60 relative z-10 my-4 text-center">
+    
+    <!-- Top Decorative Tag -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brandLightPink border border-brandRaspberry/20 text-xs text-brandRaspberry font-medium mb-6">
+      <span class="w-2 h-2 rounded-full bg-brandRaspberry animate-pulse"></span>
+      Agenda Abierta • Bogotá
+    </div>
+
+    <!-- LOGO SECTION (Minimalist Vector Eye & Brow) -->
+    <div class="flex flex-col items-center justify-center mb-2">
+      <div class="w-32 h-32 relative flex items-center justify-center mb-1">
+        <!-- High-end minimalist SVG Graphic -->
+        <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm">
+          <!-- Eyebrow -->
+          <path d="M 45 75 Q 100 45 155 70 Q 115 55 45 75 Z" fill="#7A1B38"/>
+          <!-- Eyelid stroke -->
+          <path d="M 50 105 Q 100 80 150 105" fill="none" stroke="#B53063" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Lower Lash Line curved -->
+          <path d="M 48 107 Q 100 135 152 107" fill="none" stroke="#7A1B38" stroke-width="3" stroke-linecap="round"/>
+          <!-- Eyelashes stylized -->
+          <g stroke="#7A1B38" stroke-width="2.5" stroke-linecap="round">
+            <path d="M 55 109 Q 48 118 42 124"/>
+            <path d="M 68 113 Q 63 126 58 134"/>
+            <path d="M 82 116 Q 80 132 76 142"/>
+            <path d="M 97 117 Q 97 135 96 145"/>
+            <path d="M 112 116 Q 115 133 118 143"/>
+            <path d="M 127 114 Q 132 129 138 137"/>
+            <path d="M 141 110 Q 148 123 155 129"/>
+          </g>
+        </svg>
+      </div>
+
+      <!-- TITLE -->
+      <h1 class="font-serif text-3xl sm:text-4xl font-bold tracking-wider text-brandBurgundy tracking-tight">
+        LASH ARTIST
+      </h1>
+
+      <!-- ELEGANT CLEAN SLOGAN (TEXTO PLANO Y LEGIBLE) -->
+      <p class="text-xs sm:text-sm font-medium italic text-brandRaspberry tracking-wide mt-2 px-4 leading-relaxed">
+        “Si bajas la mirada que sea solo para lucir tus pestañas”
+      </p>
+    </div>
+
+    <!-- BIO & DESCRIPTION -->
+    <div class="mt-4 mb-6 px-2">
+      <h2 class="text-xs font-semibold text-brandBurgundy uppercase tracking-widest">
+        Especialistas en Diseño y Extensiones de Pestañas
+      </h2>
+    </div>
+
+    <!-- SEPARATOR LINE -->
+    <div class="w-16 h-0.5 bg-gradient-to-r from-transparent via-brandRaspberry/40 to-transparent mx-auto mb-6"></div>
+
+    <!-- ACTION BUTTONS SECTION -->
+    <div class="space-y-3.5">
+
+      <!-- WHATSAPP DIRECT BUTTON -->
+      <a href="https://wa.me/573245918303?text=Hola!%20Deseo%20obtener%20informaci%C3%B3n%20para%20reservar%20una%20cita%20de%20pesta%C3%B1as." 
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-hover-effect flex items-center justify-between w-full p-4 rounded-2xl bg-gradient-to-r from-brandBurgundy to-brandDark text-white shadow-md group">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-xl text-emerald-300">
+            <i class="fa-brands fa-whatsapp"></i>
+          </div>
+          <div class="text-left">
+            <div class="font-semibold text-sm leading-tight">Reserva tu cita por WhatsApp</div>
+            <div class="text-[11px] text-white/70 font-light">+57 324 591 8303</div>
+          </div>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">
+          <i class="fa-solid fa-chevron-right"></i>
+        </div>
+      </a>
+
+      <!-- TIKTOK PORTFOLIO BUTTON -->
+      <a href="https://www.tiktok.com/@lash.artist59" 
+         target="_blank"
+         rel="noopener noreferrer"
+         class="btn-hover-effect flex items-center justify-between w-full p-4 rounded-2xl bg-white border border-brandPastelPink text-brandBurgundy shadow-sm group hover:border-brandRaspberry/40">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brandLightPink text-brandRaspberry flex items-center justify-center text-lg">
+            <i class="fa-brands fa-tiktok"></i>
+          </div>
+          <div class="text-left">
+            <div class="font-semibold text-sm leading-tight">Portafolio de Trabajos</div>
+            <div class="text-[11px] text-brandRaspberry font-medium">@lash.artist59 en TikTok</div>
+          </div>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-brandLightPink text-brandBurgundy flex items-center justify-center text-xs group-hover:translate-x-1 transition-transform">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
+      </a>
+
+      <!-- SERVICES EXPANDABLE MODAL TRIGGER -->
+      <button onclick="toggleServicesModal()" 
+              class="btn-hover-effect flex items-center justify-between w-full p-4 rounded-2xl bg-white border border-brandPastelPink text-brandBurgundy shadow-sm group hover:border-brandRaspberry/40">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brandLightPink text-brandBurgundy flex items-center justify-center text-lg">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <div class="text-left">
+            <div class="font-semibold text-sm leading-tight">Servicios Destacados</div>
+            <div class="text-[11px] text-gray-500 font-light">Clásico, Volumen Ruso, Lifting...</div>
+          </div>
+        </div>
+        <div class="w-8 h-8 rounded-full bg-brandLightPink text-brandBurgundy flex items-center justify-center text-xs">
+          <i class="fa-solid fa-plus"></i>
+        </div>
+      </button>
+
+      <!-- LOCATION INFORMATION -->
+      <div class="btn-hover-effect flex items-center justify-between w-full p-4 rounded-2xl bg-white border border-brandPastelPink text-brandBurgundy shadow-sm">
+        <div class="flex items-center gap-3.5">
+          <div class="w-10 h-10 rounded-xl bg-brandLightPink text-brandRaspberry flex items-center justify-center text-lg">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <div class="text-left">
+            <div class="font-semibold text-sm leading-tight">Ubicación del Estudio</div>
+            <div class="text-[11px] text-gray-500 font-light">Bogotá, Colombia</div>
+          </div>
+        </div>
+        <button onclick="copyLocation()" title="Copiar Ubicación" class="px-2.5 py-1.5 text-xs bg-brandLightPink text-brandBurgundy rounded-lg hover:bg-brandPastelPink font-medium">
+          <i class="fa-regular fa-copy mr-1"></i> Copiar
+        </button>
+      </div>
+
+    </div>
+
+    <!-- QUICK UTILITIES / FOOTER ACTIONS -->
+    <div class="mt-8 pt-5 border-t border-brandPastelPink/60 flex items-center justify-around text-xs text-brandBurgundy/80">
+      <button onclick="copyPhone()" class="flex items-center gap-1.5 hover:text-brandRaspberry transition-colors">
+        <i class="fa-solid fa-phone"></i>
+        <span>Copiar WhatsApp</span>
+      </button>
+      <span class="text-brandPastelPink">•</span>
+      <button onclick="shareCard()" class="flex items-center gap-1.5 hover:text-brandRaspberry transition-colors">
+        <i class="fa-solid fa-share-nodes"></i>
+        <span>Compartir Tarjeta</span>
+      </button>
+    </div>
+
+    <div class="mt-6 text-[10px] text-gray-400 uppercase tracking-widest">
+      © LASH ARTIST • Bogotá, Colombia
+    </div>
+
+  </main>
+
+  <!-- MODAL: SERVICIOS DETALLADOS -->
+  <div id="servicesModal" class="fixed inset-0 bg-brandDark/40 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300 p-0 sm:p-4">
+    <div class="w-full max-w-md bg-white rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl transform translate-y-full sm:translate-y-0 transition-transform duration-300 max-h-[85vh] overflow-y-auto">
+      
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between pb-4 border-b border-gray-100 mb-4">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-gem text-brandRaspberry"></i>
+          <h3 class="font-serif text-xl font-bold text-brandBurgundy">Nuestros Servicios</h3>
+        </div>
+        <button onclick="toggleServicesModal()" class="w-8 h-8 rounded-full bg-gray-100 text-gray-500 flex items-center justify-center hover:bg-gray-200">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Services List -->
+      <div class="space-y-4">
+        
+        <!-- Service 1 -->
+        <div class="p-3.5 rounded-xl bg-brandLightPink/60 border border-brandPastelPink/40">
+          <div class="flex justify-between items-start mb-1">
+            <h4 class="font-semibold text-brandBurgundy text-sm">Técnica Clásica (Pelo a Pelo)</h4>
+            <span class="text-xs bg-white px-2 py-0.5 rounded text-brandRaspberry font-medium">Efecto Natural</span>
+          </div>
+          <p class="text-xs text-gray-600">Aplicación de una extensión sobre cada pestaña natural. Ideal para un aspecto elegante y sutil de uso diario.</p>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="p-3.5 rounded-xl bg-brandLightPink/60 border border-brandPastelPink/40">
+          <div class="flex justify-between items-start mb-1">
+            <h4 class="font-semibold text-brandBurgundy text-sm">Volumen Ruso</h4>
+            <span class="text-xs bg-white px-2 py-0.5 rounded text-brandRaspberry font-medium">Mayor Densidad</span>
+          </div>
+          <p class="text-xs text-gray-600">Creación de abanicos artesanales súper ligeros para lograr una mirada más tupida, glamurosa y definida.</p>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="p-3.5 rounded-xl bg-brandLightPink/60 border border-brandPastelPink/40">
+          <div class="flex justify-between items-start mb-1">
+            <h4 class="font-semibold text-brandBurgundy text-sm">Lifting de Pestañas + Tinte</h4>
+            <span class="text-xs bg-white px-2 py-0.5 rounded text-brandRaspberry font-medium">Pestañas Naturales</span>
+          </div>
+          <p class="text-xs text-gray-600">Tratamiento para elevar, curvar y nutrir tus pestañas naturales desde la raíz con duración de 6 a 8 semanas.</p>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="p-3.5 rounded-xl bg-brandLightPink/60 border border-brandPastelPink/40">
+          <div class="flex justify-between items-start mb-1">
+            <h4 class="font-semibold text-brandBurgundy text-sm">Diseño y Profilaxis de Mirada</h4>
+            <span class="text-xs bg-white px-2 py-0.5 rounded text-brandRaspberry font-medium">Personalizado</span>
+          </div>
+          <p class="text-xs text-gray-600">Evaluación de visagismo facial para seleccionar la curvatura, grosor y mapa perfecto según tu tipo de ojo.</p>
+        </div>
+
+      </div>
+
+      <!-- Book Action Inside Modal -->
+      <div class="mt-6">
+        <a href="https://wa.me/573245918303?text=Hola!%20Me%20interesa%20agendar%20una%20cita%20de%20servicios." 
+           target="_blank" 
+           class="w-full py-3 bg-brandBurgundy text-white font-medium rounded-xl flex items-center justify-center gap-2 text-sm shadow-md">
+          <i class="fa-brands fa-whatsapp text-lg"></i>
+          <span>Agendar Servicio Ahora</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div id="toast" class="fixed bottom-5 left-1/2 -translate-x-1/2 bg-brandBurgundy text-white text-xs px-4 py-2.5 rounded-full shadow-lg opacity-0 pointer-events-none transition-all duration-300 z-50 flex items-center gap-2">
+    <i class="fa-solid fa-circle-check text-emerald-400"></i>
+    <span id="toastMessage">Texto copiado al portapapeles</span>
+  </div>
+
+  <script>
+    // Toggle Modal
+    function toggleServicesModal() {
+      const modal = document.getElementById('servicesModal');
+      const modalContent = modal.firstElementChild;
+      
+      if (modal.classList.contains('opacity-0')) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modalContent.classList.remove('translate-y-full');
+      } else {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalContent.classList.add('translate-y-full');
+      }
+    }
+
+    // Toast Notification Helper
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.textContent = message;
+      
+      toast.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        toast.classList.add('opacity-0', 'pointer-events-none');
+      }, 2500);
+    }
+
+    // Copy Utilities with Fallback
+    function copyToClipboard(text, successMsg) {
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          fallbackCopyTextToClipboard(text, successMsg);
+        });
+      } else {
+        fallbackCopyTextToClipboard(text, successMsg);
+      }
+    }
+
+    function fallbackCopyTextToClipboard(text, successMsg) {
+      const textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.top = "0";
+      textArea.style.left = "0";
+      textArea.style.position = "fixed";
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        document.execCommand('copy');
+        showToast(successMsg);
+      } catch (err) {
+        showToast("No se pudo copiar automáticamente");
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function copyPhone() {
+      copyToClipboard("+573245918303", "¡Número de WhatsApp copiado!");
+    }
+
+    function copyLocation() {
+      copyToClipboard("Lash Artist - Bogotá, Colombia", "¡Ubicación copiada!");
+    }
+
+    function shareCard() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'LASH ARTIST - Tarjeta Digital',
+          text: 'LASH ARTIST: Especialistas en Diseño y Extensiones de Pestañas en Bogotá',
+          url: window.location.href,
+        }).catch(() => {});
+      } else {
+        copyToClipboard(window.location.href, "¡Enlace de tarjeta copiado!");
+      }
+    }
+  </script>
+</body>
+</html>
